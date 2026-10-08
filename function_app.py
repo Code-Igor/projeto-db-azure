@@ -1,6 +1,3 @@
-host  = sv-univille-ca.database.windows.net
-database = db-univille
-
 import logging
 import azure.functions as func
 import os
