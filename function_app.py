@@ -16,7 +16,7 @@ def extract_chamado(myTimer: func.TimerRequest) -> None:
     sql_user = os.getenv("USER")
     sql_pass = os.getenv("PASSWORD")
 
-    logging.info(f'servidor={sql_server}, banco de dados={sql_database}, usuario={sql_user}, senha={sql_pass} ')
+    logging.info(f'servidor={sql_server}, banco de dados={sql_database}')
 
     # Configura a string de conexão para o banco de dados SQL Server
     conn_str = (
@@ -61,7 +61,7 @@ def extract_analista(myTimer: func.TimerRequest) -> None:
     sql_user = os.getenv("USER")
     sql_pass = os.getenv("PASSWORD")
 
-    logging.info(f'servidor={sql_server}, banco de dados={sql_database}, usuario={sql_user}, senha={sql_pass} ')
+    logging.info(f'servidor={sql_server}, banco de dados={sql_database}')
 
     # Configura a string de conexão para o banco de dados SQL Server
     conn_str = (
@@ -106,7 +106,7 @@ def extract_categoria(myTimer: func.TimerRequest) -> None:
     sql_user = os.getenv("USER")
     sql_pass = os.getenv("PASSWORD")
 
-    logging.info(f'servidor={sql_server}, banco de dados={sql_database}, usuario={sql_user}, senha={sql_pass} ')
+    logging.info(f'servidor={sql_server}, banco de dados={sql_database}')
 
     # Configura a string de conexão para o banco de dados SQL Server
     conn_str = (
@@ -151,7 +151,7 @@ def extract_chamado_sla(myTimer: func.TimerRequest) -> None:
     sql_user = os.getenv("USER")
     sql_pass = os.getenv("PASSWORD")
 
-    logging.info(f'servidor={sql_server}, banco de dados={sql_database}, usuario={sql_user}, senha={sql_pass} ')
+    logging.info(f'servidor={sql_server}, banco de dados={sql_database}')
 
     # Configura a string de conexão para o banco de dados SQL Server
     conn_str = (
@@ -196,7 +196,7 @@ def extract_chamado_status_historico(myTimer: func.TimerRequest) -> None:
     sql_user = os.getenv("USER")
     sql_pass = os.getenv("PASSWORD")
 
-    logging.info(f'servidor={sql_server}, banco de dados={sql_database}, usuario={sql_user}, senha={sql_pass} ')
+    logging.info(f'servidor={sql_server}, banco de dados={sql_database}')
 
     # Configura a string de conexão para o banco de dados SQL Server
     conn_str = (
@@ -241,7 +241,7 @@ def extract_cliente_organizacao(myTimer: func.TimerRequest) -> None:
     sql_user = os.getenv("USER")
     sql_pass = os.getenv("PASSWORD")
 
-    logging.info(f'servidor={sql_server}, banco de dados={sql_database}, usuario={sql_user}, senha={sql_pass} ')
+    logging.info(f'servidor={sql_server}, banco de dados={sql_database}')
 
     # Configura a string de conexão para o banco de dados SQL Server
     conn_str = (
@@ -286,7 +286,7 @@ def extract_csat_avaliacao(myTimer: func.TimerRequest) -> None:
     sql_user = os.getenv("USER")
     sql_pass = os.getenv("PASSWORD")
 
-    logging.info(f'servidor={sql_server}, banco de dados={sql_database}, usuario={sql_user}, senha={sql_pass} ')
+    logging.info(f'servidor={sql_server}, banco de dados={sql_database}')
 
     # Configura a string de conexão para o banco de dados SQL Server
     conn_str = (
@@ -330,7 +330,7 @@ def extract_fila(myTimer: func.TimerRequest) -> None:
     sql_user = os.getenv("USER")
     sql_pass = os.getenv("PASSWORD")
 
-    logging.info(f'servidor={sql_server}, banco de dados={sql_database}, usuario={sql_user}, senha={sql_pass} ')
+    logging.info(f'servidor={sql_server}, banco de dados={sql_database}')
 
     # Configura a string de conexão para o banco de dados SQL Server
     conn_str = (
@@ -375,7 +375,7 @@ def extract_sla(myTimer: func.TimerRequest) -> None:
     sql_user = os.getenv("USER")
     sql_pass = os.getenv("PASSWORD")
 
-    logging.info(f'servidor={sql_server}, banco de dados={sql_database}, usuario={sql_user}, senha={sql_pass} ')
+    logging.info(f'servidor={sql_server}, banco de dados={sql_database}')
 
     # Configura a string de conexão para o banco de dados SQL Server
     conn_str = (
@@ -420,7 +420,7 @@ def extract_solicitante(myTimer: func.TimerRequest) -> None:
     sql_user = os.getenv("USER")
     sql_pass = os.getenv("PASSWORD")
 
-    logging.info(f'servidor={sql_server}, banco de dados={sql_database}, usuario={sql_user}, senha={sql_pass} ')
+    logging.info(f'servidor={sql_server}, banco de dados={sql_database}')
 
     # Configura a string de conexão para o banco de dados SQL Server
     conn_str = (
