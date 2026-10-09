@@ -6,7 +6,7 @@ import pyodbc
 app = func.FunctionApp()
 
 
-@app.timer_trigger(schedule="0 * * * * *", arg_name="myTimer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */5 * * * *", arg_name="myTimer", run_on_startup=False,
               use_monitor=False) 
 def extract_chamado(myTimer: func.TimerRequest) -> None:
     logging.info('tabela chamado')
@@ -51,7 +51,7 @@ def extract_chamado(myTimer: func.TimerRequest) -> None:
         logging.error(f"Erro ao ler itsm.chamado: {str(e)}")
         raise
 
-@app.timer_trigger(schedule="0 * * * * *", arg_name="myTimer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */5 * * * *", arg_name="myTimer", run_on_startup=False,
               use_monitor=False) 
 def extract_analista(myTimer: func.TimerRequest) -> None:
     logging.info('tabela analista')
@@ -96,7 +96,7 @@ def extract_analista(myTimer: func.TimerRequest) -> None:
         logging.error(f"Erro ao ler itsm.categoria: {str(e)}")
         raise
 
-@app.timer_trigger(schedule="*/5 * * * *", arg_name="myTimer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */5 * * * *", arg_name="myTimer", run_on_startup=False,
               use_monitor=False) 
 def extract_categoria(myTimer: func.TimerRequest) -> None:
     logging.info('tabela categoria')
@@ -141,7 +141,7 @@ def extract_categoria(myTimer: func.TimerRequest) -> None:
         logging.error(f"Erro ao ler itsm.categoria: {str(e)}")
         raise
 
-@app.timer_trigger(schedule="*/5 * * * *", arg_name="myTimer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */5 * * * *", arg_name="myTimer", run_on_startup=False,
               use_monitor=False) 
 def extract_chamado_sla(myTimer: func.TimerRequest) -> None:
     logging.info('tabela chamado sla')
@@ -186,7 +186,7 @@ def extract_chamado_sla(myTimer: func.TimerRequest) -> None:
         logging.error(f"Erro ao ler itsm.chamado_sla: {str(e)}")
         raise
 
-@app.timer_trigger(schedule="*/5 * * * *", arg_name="myTimer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */5 * * * *", arg_name="myTimer", run_on_startup=False,
               use_monitor=False) 
 def extract_chamado_status_historico(myTimer: func.TimerRequest) -> None:
     logging.info('tabela chamado status historico')
@@ -231,7 +231,7 @@ def extract_chamado_status_historico(myTimer: func.TimerRequest) -> None:
         logging.error(f"Erro ao ler itsm.chamado_status_historico: {str(e)}")
         raise
 
-@app.timer_trigger(schedule="*/5 * * * *", arg_name="myTimer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */5 * * * *", arg_name="myTimer", run_on_startup=False,
               use_monitor=False) 
 def extract_cliente_organizacao(myTimer: func.TimerRequest) -> None:
     logging.info('tabela cliente organizacao')
@@ -276,7 +276,7 @@ def extract_cliente_organizacao(myTimer: func.TimerRequest) -> None:
         logging.error(f"Erro ao ler itsm.cliente_organizacao: {str(e)}")
         raise
 
-@app.timer_trigger(schedule="*/5 * * * *", arg_name="myTimer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */5 * * * *", arg_name="myTimer", run_on_startup=False,
               use_monitor=False) 
 def extract_csat_avaliacao(myTimer: func.TimerRequest) -> None:
     logging.info('tabela csat avaliacao')
@@ -320,7 +320,7 @@ def extract_csat_avaliacao(myTimer: func.TimerRequest) -> None:
         logging.error(f"Erro ao ler itsm.csat_avaliacao: {str(e)}")
         raise
 
-@app.timer_trigger(schedule="*/5 * * * *", arg_name="myTimer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */5 * * * *", arg_name="myTimer", run_on_startup=False,
               use_monitor=False) 
 def extract_fila(myTimer: func.TimerRequest) -> None:
     logging.info('tabela fila')
@@ -365,7 +365,7 @@ def extract_fila(myTimer: func.TimerRequest) -> None:
         logging.error(f"Erro ao ler itsm.fila: {str(e)}")
         raise
 
-@app.timer_trigger(schedule="*/5 * * * *", arg_name="myTimer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */5 * * * *", arg_name="myTimer", run_on_startup=False,
               use_monitor=False) 
 def extract_sla(myTimer: func.TimerRequest) -> None:
     logging.info('tabela sla')
@@ -410,7 +410,7 @@ def extract_sla(myTimer: func.TimerRequest) -> None:
         logging.error(f"Erro ao ler itsm.sla: {str(e)}")
         raise
 
-@app.timer_trigger(schedule="*/5 * * * *", arg_name="myTimer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */5 * * * *", arg_name="myTimer", run_on_startup=False,
               use_monitor=False) 
 def extract_solicitante(myTimer: func.TimerRequest) -> None:
     logging.info('tabela solicitante')
