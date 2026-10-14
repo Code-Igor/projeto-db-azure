@@ -1,6 +1,6 @@
 name: CI/CD
 
-on: 
+on:
   push:
     branches: ["main"]
 
@@ -10,4 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 --version
+
+      - name: Instalar Ruff
+        run: python3 -m pip install ruff
+
+      - name: Verificar código com Ruff
+        run: python3 -m ruff check .
+
       - run: python3 -m py_compile function_app.py
