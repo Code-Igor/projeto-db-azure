@@ -13,12 +13,12 @@ jobs:
 
       - name: Instalar Ruff
         run: python3 -m pip install ruff
-
-      - name: Verificar formatação com Ruff
-        run: python3 -m ruff format --check .
         
       - name: Corrigir formatação com o Ruff
         run: ruff format .
+
+      - name: Verificar formatação com Ruff
+        run: python3 -m ruff format --check .
 
       - run: python3 -m py_compile function_app.py
 
