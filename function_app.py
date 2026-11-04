@@ -657,6 +657,12 @@ def extract_solicitante(myTimer: func.TimerRequest) -> None:
         raise
 
 
+@app.timer_trigger(
+    schedule="0 */5 * * * *",
+    arg_name="myTimer",
+    run_on_startup=False,
+    use_monitor=False,
+)
 def extract_metadata(myTimer: func.TimerRequest) -> None:
 
     logging.info("Iniciando extração dos metadados do banco de dados.")
