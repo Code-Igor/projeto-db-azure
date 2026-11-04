@@ -655,3 +655,85 @@ def extract_solicitante(myTimer: func.TimerRequest) -> None:
     except Exception as e:
         logging.error(f"Erro ao ler itsm.solicitante: {str(e)}")
         raise
+
+
+def extract_metadata(myTimer: func.TimerRequest) -> None:
+
+    logging.info("Iniciando extração dos metadados do banco de dados.")
+
+    sql_server = os.getenv("HOST")
+    sql_database = os.getenv("DATABASE")
+    sql_user = os.getenv("USER")
+    sql_pass = os.getenv("PASSWORD")
+
+    conn_str = (
+        "DRIVER={ODBC Driver 18 for SQL Server};"
+        f"SERVER={sql_server};"
+        f"DATABASE={sql_database};"
+        f"UID={sql_user};"
+        f"PWD={sql_pass};"
+        "Encrypt=yes;"
+        "TrustServerCertificate=no;"
+        "Connection Timeout=30;"
+    )
+
+    try:
+        with pyodbc.connect(conn_str) as conn:
+
+            cursor = conn.cursor()
+
+            query = """
+                SELECT
+                    TABLE_NAME,
+                    COLUMN_NAME,
+                    DATA_TYPE,
+                    CHARACTER_MAXIMUM_LENGTH,
+                    NUMERIC_PRECISION,
+                    NUMERIC_SCALE,
+                    IS_NULLABLE,
+                    ORDINAL_POSITION
+                FROM INFORMATION_SCHEMA.COLUMNS
+                WHERE TABLE_SCHEMA = 'itsm'
+                ORDER BY TABLE_NAME, ORDINAL_POSITION;
+            """
+
+            cursor.execute(query)
+            rows = cursor.fetchall()
+
+            if not rows:
+                logging.warning("Nenhuma tabela encontrada no schema itsm.")
+                return
+
+            tabela_atual = None
+
+            for row in rows:
+
+                tabela = row.TABLE_NAME
+
+                if tabela != tabela_atual:
+
+                    tabela_atual = tabela
+
+                    logging.info("=" * 60)
+                    logging.info(f"TABELA: {tabela_atual}")
+                    logging.info("=" * 60)
+
+                logging.info(
+                    f"Coluna: {row.COLUMN_NAME} | "
+                    f"Tipo: {row.DATA_TYPE} | "
+                    f"Tamanho: {row.CHARACTER_MAXIMUM_LENGTH} | "
+                    f"Precisão: {row.NUMERIC_PRECISION} | "
+                    f"Escala: {row.NUMERIC_SCALE} | "
+                    f"Permite NULL: {row.IS_NULLABLE} | "
+                    f"Posição: {row.ORDINAL_POSITION}"
+                )
+
+            logging.info(
+                f"Extração concluída. "
+                f"{len(set(row.TABLE_NAME for row in rows))} tabelas "
+                f"e {len(rows)} colunas encontradas."
+            )
+
+    except Exception as e:
+        logging.exception(f"Erro ao extrair metadados: {str(e)}")
+        raise
