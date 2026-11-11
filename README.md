@@ -175,3 +175,11 @@ CREATE TABLE [dbo].[solicitante]
     cd_registro_origem NVARCHAR(100) NULL
 )
 ```
+## Listagem Indicadores
+
+Iremos utilizar os seguintes indicadores:
+- Total Chamados
+- Chamados por Status
+- Chamado x Analista 
+- Chamado x Avaliação 
+- Chamados × SLA 
